@@ -10,7 +10,6 @@ namespace BackEnd_Нагорнов_А.В._ЛР10.Controllers
         {
             return Content("<html><body><h1>Hello, World!</h1></body></html>", "text/html");
         }
-
         //Метод, возвращающий JSON.
         [HttpGet("json")]
         public JsonResult GetJson()
@@ -18,7 +17,6 @@ namespace BackEnd_Нагорнов_А.В._ЛР10.Controllers
             string obj = "dummy";
             return Json(obj);
         }
-
         //Метод, возвращающий файл.
         [HttpGet("file")]
         public FileResult GetFile()
@@ -26,6 +24,12 @@ namespace BackEnd_Нагорнов_А.В._ЛР10.Controllers
             var filePath = "D:\\Документы\\Лабораторные работы\\2_год\\4_семестр\\BackEnd\\10\\BackEnd_Нагорнов_А.В._ЛР10\\file.txt";
             var fileType = "application/octet-stream";
             return PhysicalFile(filePath, fileType, "file.txt");
+        }
+        // Метод, возвращающий код состояния
+        [HttpGet("status")]
+        public StatusCodeResult GetStatus()
+        {
+            return NoContent(); //Возвращает 204 No Content.
         }
     }
 }
